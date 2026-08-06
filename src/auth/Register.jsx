@@ -2,10 +2,14 @@ import React from 'react'
 import Auth from './component/Auth'
 
 const Register = () => {
+    const handleRegister = (data) =>{
+        console.log(data)
+
+    }
 
 
   return (
-    <Auth type={register}/>
+    <Auth type='Register' onSub = {handleRegister}/>
   )
 }
 

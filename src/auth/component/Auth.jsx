@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../../assets/ik_logo.png"
 
-const Auth = () => {
+const Auth = ({type,onSub}) => {
+    const [data,setData] = useState({
+        username : '',
+        email : '',
+        password : '',
+        rememberMe : false
+
+    })
+ const handleData = (e) =>{
+const {name,value} = e.target;
+setData({
+    ...data,
+    [name] : value 
+})
+ }
+ 
+ const handleSubmit = (e) =>{
+    e.preventDefault();
+    onSub(data)
+ }
+
+
+
   return (
 <main className="w-full h-screen flex flex-col items-center justify-center px-4">
   <div className="max-w-sm w-full text-gray-600 space-y-5">
@@ -13,23 +35,40 @@ const Auth = () => {
         </h3>
       </div>
     </div>
-    <form onsubmit="event.preventDefault()" className="space-y-5">
+    <form  className="space-y-5" onSubmit={handleSubmit}>
+        {
+            type==="Register" && (
+
+                <div>
+        <label className="font-medium"> Username </label>
+        <input type="text" name='username' required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" onChange={handleData} />
+      </div>
+    )
+    }
       <div>
         <label className="font-medium"> Email </label>
-        <input type="email" required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" />
+        <input type="email" name='email' required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" onChange={handleData}/>
       </div>
       <div>
         <label className="font-medium"> Password </label>
-        <input type="password" required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" />
+        <input type="password" name='password' required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" onChange={handleData}/>
       </div>
-      <div className="flex items-center justify-between text-sm">
+      {
+        type ==="Login" && 
+        (
+
+            <div className="flex items-center justify-between text-sm">
         <div className="flex items-center gap-x-3">
-          <input type="checkbox" id="remember-me-checkbox" className="checkbox-item peer hidden" />
+          <input type="checkbox" name='rememberMe'  id="remember-me-checkbox" className="checkbox-item peer hidden" onChange={(e)=>{
+              setData({...data,rememberMe : e.target.checked})
+            }} />
           <label htmlFor="remember-me-checkbox" className="relative flex w-5 h-5 bg-white peer-checked:bg-red-600 rounded-md border ring-offset-2 ring-red-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-0.75 after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45" />
           <span>Remember me</span>
         </div>
         <a href="javascript:void(0)" className="text-center text-red-600 hover:text-red-500">Forgot password?</a>
       </div>
+        )
+      }
       <button className="w-full px-4 py-2 text-white font-medium bg-red-600 hover:bg-red-500 active:bg-red-600 rounded-lg duration-150">
         Sign in
       </button>
