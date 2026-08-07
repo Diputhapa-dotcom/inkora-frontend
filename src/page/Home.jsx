@@ -4,8 +4,8 @@ import logo from '../assets/ik_logo.png'
 import Navbar from '../component/Navbar'
 
 const Home = () => {
-  return (<>
-  
+  return (
+  <>
   <Navbar type="Home"/>
   <div className="flex flex-wrap">
   <div className="w-full sm:w-8/12 mb-10">
@@ -24,7 +24,7 @@ const Home = () => {
   <img src={blog} alt="Leafs" className="w-full h-48 object-cover sm:h-screen sm:w-4/12" />
 </div>
 
-<footer className="bg-gray-700 py-2 px-2 shadow-md z-10 flex justify-content-center align-items-center  dark:text-white">
+<footer className="bg-gray-600 py-2 px-2 shadow-md z-10 flex justify-content-center align-items-center  dark:text-white">
   <div className="text-sm text-gray-600 dark:text-gray-300">Copyright © 2023 My Company</div>
   <div className="flex ml-auto gap-4">
     <a href="#" className="dark:text-gray-300 hover:text-gray-900 hover:dark:text-gray-400">Terms &amp;
