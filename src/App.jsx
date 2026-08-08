@@ -4,6 +4,7 @@ import Register from './auth/Register'
 import Login from './auth/Login'
 import Home from './page/Home'
 import Layout from './component/Layout'
+import Main from './page/Main'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/login' element={<Login/> } />
         <Route path='/home' element={<Home/> } />
         <Route path='/layout' element={<Layout/> } />
+        <Route path='/main' element={<Main/> } />
        </Routes>
        </BrowserRouter>
 
