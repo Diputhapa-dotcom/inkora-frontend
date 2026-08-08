@@ -6,7 +6,7 @@ const Navbar = ({type}) => {
 
   return (
     
-<div className="flex p-1 justify-between items-cente flex-wrap border border-gray-300">
+<div className="flex  justify-between items-cente flex-wrap border border-gray-300">
   <div className="flex items-center">
     <img src={logo} className="w-15 " />
     <h2 className="font-bold text-2xl text-black">Inkora</h2>

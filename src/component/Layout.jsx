@@ -14,11 +14,11 @@ const Layout = ({children}) => {
 
       <div className=' h-screen w-full relative flex'>
 
-      <aside className='border w-[20%] border-gray-200 flex flex-col items-center '>
+      <aside className='border-r w-[20%] border-gray-200 flex flex-col items-center '>
         <div className='top-3.5 rounded-full  text-center h-36 w-36 overflow-hidden my-4' >
           <img
             src={pic}
-            className="w-full h-full rounded-full border-2 border-gray-600 "
+            className="w-full h-full object-cover rounded-full border-2 border-gray-600 "
           />
       </div> 
         <h3 className='my-4'>Dipu thapa</h3>

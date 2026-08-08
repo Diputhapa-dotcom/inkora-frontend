@@ -2,6 +2,7 @@ import React from 'react'
 import blog from '../assets/blog.jpg'
 import logo from '../assets/ik_logo.png'
 import Navbar from '../component/Navbar'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -16,7 +17,11 @@ const Home = () => {
              <span className="text-green-700"> stories and ideas</span> <br/> through the inkora</h1>
           <div className="w-20 h-2 bg-green-700 my-4" />
           <p className="text-xl mb-10">Create, publish, and inspire with blogs that make a lasting impact worldwide.</p>
+
+          <Link to="/main">
           <button className="bg-green-500 text-white text-2xl font-medium  rounded-full p-3 shadow">Start reading</button>
+          </Link>
+
         </div>
       </header>
     </div>
