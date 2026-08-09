@@ -3,12 +3,12 @@ import Navbar from '../../component/Navbar';
 
 const Form = forwardRef(({type,onSub}, ref) => {
   const [data,setData] = useState({
-  title : '',
-  subtitle : '',
-  content : '',
-  files : ''
-
+    title: '',
+    subtitle: '',
+    content: '',
+    files: null
   })
+
   const handleBlog = (e) => {
     const {name,value,files} = e.target;
     setData({
@@ -16,7 +16,6 @@ const Form = forwardRef(({type,onSub}, ref) => {
       [name] : name === 'files' ? files?.[0] ?? null : value 
     })
     
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -46,12 +45,15 @@ const Form = forwardRef(({type,onSub}, ref) => {
         className="w-full text-2xl font-medium outline-none mb-4"
         onChange={handleBlog}
         />
-        <label 
-        className='cursor-pointer text-2xl text-gray-600'>
-           <ion-icon
-            name="add-circle-outline"></ion-icon>
+     
+        <label className='cursor-pointer text-2xl text-gray-600'>
+           <ion-icon name="add-circle-outline"></ion-icon>
            <input
-            type="file" className='hidden' name='files'/>
+             type="file"
+             className='hidden'
+             name='files'
+             onChange={handleBlog}
+           />
         </label>
 
          <textarea
@@ -65,8 +67,8 @@ const Form = forwardRef(({type,onSub}, ref) => {
         </div>
 </form>
  </>
-  )
-});
+)}
+
 
 
 
