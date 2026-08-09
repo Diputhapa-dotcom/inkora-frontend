@@ -5,6 +5,8 @@ import Login from './auth/Login'
 import Home from './page/Home'
 import Layout from './component/Layout'
 import Main from './page/Main'
+import SingleBlog from './page/SingleBlog'
+import AddBlog from './page/AddBlog'
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route path='/home' element={<Home/> } />
         <Route path='/layout' element={<Layout/> } />
         <Route path='/main' element={<Main/> } />
+        <Route path='/blog/id' element={<SingleBlog/> } />
+        <Route path='/blog/add' element={<AddBlog/> } />
        </Routes>
        </BrowserRouter>
 
