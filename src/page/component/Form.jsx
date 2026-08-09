@@ -5,7 +5,6 @@ const Form = forwardRef(({type,onSub}, ref) => {
   const [data,setData] = useState({
   title : '',
   subtitle : '',
-  description : '',
   content : '',
   files : ''
 
@@ -51,7 +50,7 @@ const Form = forwardRef(({type,onSub}, ref) => {
         />
         <label className='cursor-pointer text-2xl text-gray-600'>
            <ion-icon name="add-circle-outline"></ion-icon>
-           <input type="file" className='hidden' name='file'/>
+           <input type="file" className='hidden' name='files'/>
         </label>
 
          <textarea
