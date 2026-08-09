@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/ik_logo.png'
 
-const Navbar = ({type}) => {
+const Navbar = ({type,onSubmit}) => {
 
   return (
     
@@ -28,7 +28,7 @@ const Navbar = ({type}) => {
   type === 'Addblog' ? (
   
   <div className="flex items-center mx-60 gap-6">
-  <button className=" p-1.5 rounded-full bg-green-600 text-white ">Publish</button>
+  <button className=" p-1.5 rounded-full bg-green-600 text-white " onClick={onsubmit}>Publish</button>
    <div className="flex items-center ">
       <img className="w-10 h-10 object-cover rounded-full" src="https://avatars.githubusercontent.com/u/80972003?s=400&u=4abe9028a5d2ea962729656808fe48e31a202751&v=4" alt="Follower Image" />
     </div> 
