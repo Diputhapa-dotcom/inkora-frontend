@@ -3,19 +3,18 @@ import Navbar from '../../component/Navbar';
 
 const Form = forwardRef(({type,onSub}, ref) => {
   const [data,setData] = useState({
-  title : '',
-  subtitle : '',
-  content : '',
-  files : ''
-
+    title: '',
+    subtitle: '',
+    content: '',
+    files: null
   })
+
   const handleBlog = (e) => {
-    const {name,value} = e.target;
-    setData({
-      ...data,
-      [name] : name === 'files' ? e.target.files[0] : value 
-    })
-    
+    const { name, value, files } = e.target
+    setData((prevData) => ({
+      ...prevData,
+      [name]: name === 'files' ? files?.[0] ?? null : value
+    }))
   }
 
   const handleSubmit = (e) => {
@@ -50,7 +49,12 @@ const Form = forwardRef(({type,onSub}, ref) => {
         />
         <label className='cursor-pointer text-2xl text-gray-600'>
            <ion-icon name="add-circle-outline"></ion-icon>
-           <input type="file" className='hidden' name='files'/>
+           <input
+             type="file"
+             className='hidden'
+             name='files'
+             onChange={handleBlog}
+           />
         </label>
 
          <textarea
