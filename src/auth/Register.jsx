@@ -1,10 +1,15 @@
 import React from 'react'
 import Auth from './component/Auth'
+import axios from 'axios'
+import { urlBase } from '../../config'
 
 const Register = () => {
-    const handleRegister = (data) =>{
-        console.log(data)
+    const handleRegister = async (data) =>{
+      const response = await axios.post(`${urlBase}/register`,data)
+      if(response.status === 201){
 
+        console.log(response)
+      }
     }
 
 

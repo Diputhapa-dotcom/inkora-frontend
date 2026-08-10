@@ -1,12 +1,22 @@
 import React, { useRef } from 'react'
 import Navbar from '../component/Navbar'
 import Form from './component/Form'
+import axios from 'axios';
+import { urlBase } from '../../config';
 
 const AddBlog = () => {
   const formRef = useRef();
 
 const handleAddBlog = (data) => {
-  console.log("the data is",data)
+  const response = axios.post(`${urlBase}/blog/add`,data,{
+    headers : {
+      "Content-Type" : "multipart/form-data",
+      
+    }
+  })
+  if(response.status === 200){
+    console.log("data sent successfully")
+  }
 
 }
 

@@ -10,11 +10,12 @@ const Form = forwardRef(({type,onSub}, ref) => {
   })
 
   const handleBlog = (e) => {
-    const {name,value,files} = e.target;
+    const {name,value} = e.target;
     setData({
       ...data,
-      [name] : name === 'files' ? files?.[0] ?? null : value 
+      [name] : name === 'files' ? e.target.files[0] : value 
     })
+}
     
 
   const handleSubmit = (e) => {
@@ -62,12 +63,12 @@ const Form = forwardRef(({type,onSub}, ref) => {
         className="w-full min-h-125 text-xl leading-8 outline-none resize-none"
         onChange={handleBlog}
         />
-
-
         </div>
 </form>
  </>
-)}
+  )
+})
+
 
 
 
