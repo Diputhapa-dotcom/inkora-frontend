@@ -5,7 +5,7 @@ import { urlBase } from "../../config";
 
 const userSlice = createSlice({
     name : 'user' ,
-    initialState = {
+    initialState : {
         data : [],
         status : ''
     },
@@ -30,14 +30,29 @@ export function user(data){
     const response = axios.post(`${urlBase}/register`,data)
     if(response.status === 200){
       dispatch(setStatus(STATUSES.SUCCESS))
+      dispatch(setData( data ))
 
     }else{
       dispatch(setStatus(STATUSES.ERROR))
     }
 
   }
-
 }
+
+
+export function register(data){
+  return function regiterThunk(dispatch){
+            dispatch(setStatus( STATUSES.LOADING));
+            const response = axios.post(`${urlBase}/register`,data)
+          if( response.status === 200){
+            dispatch( setStatus( STATUSES.SUCCESS))
+            dispatch(setData( data ))
+
+
+          }else{
+            dispatch( setStatus(STATUSES.ERROR))
+          }
+}}
 
 
 
