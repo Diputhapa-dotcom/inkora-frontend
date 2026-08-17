@@ -1,12 +1,11 @@
 import React from 'react'
 import Auth from './component/Auth'
-import axios from 'axios'
 import { urlBase } from '../../config'
 import { useDispatch, useSelector } from 'react-redux'
 import { user } from '../store/userSlice'
 
 const Login = () => {
-  const {status}= useSelector((state)=>state.auth)
+  const {status}= useSelector((state)=>state.user)
   console.log(status)
   const dipatch = useDispatch()
     const handleLogin =async  (data) =>{

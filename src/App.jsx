@@ -8,8 +8,13 @@ import Main from './page/Main'
 import SingleBlog from './page/SingleBlog'
 import AddBlog from './page/AddBlog'
 
+import { Provider } from 'react-redux'
+import store from './store/Store'
+
 const App = () => {
   return (
+    <Provider store={store}>
+
        <BrowserRouter>
        <Routes>
         <Route path='/register' element={<Register/> } />
@@ -22,6 +27,7 @@ const App = () => {
        </Routes>
        </BrowserRouter>
 
+    </Provider>
   )
 }
 
